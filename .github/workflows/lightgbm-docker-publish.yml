@@ -136,7 +136,7 @@ jobs:
           platforms: linux/amd64,linux/arm64/v8,linux/ppc64le
           context: python
           file: python/lgb.Dockerfile
-          push: true
+          push: false
           tags: ${{ env.IMAGE_ID }}:${{ env.VERSION }}
           # https://github.com/docker/buildx/issues/1533
           provenance: false
