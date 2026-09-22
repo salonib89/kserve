@@ -1,6 +1,8 @@
 name: LightGBMServer Docker Publisher
 
 on:
+  workflow_dispatch:
+
   push:
     # Publish `master` as Docker `latest` image.
     branches:
