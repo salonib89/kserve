@@ -1,10 +1,13 @@
 name: PMMLServer Docker Publisher
 
 on:
+  workflow_dispatch:
+
   push:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
+      - ppc64le-support-pmml
 
     # Publish `v1.2.3` tags as releases.
     tags:
@@ -102,11 +105,11 @@ jobs:
         with:
           cache-binary: true
 
-      - name: Login to DockerHub
-        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+            #- name: Login to DockerHub
+            #uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
+            #with:
+            #username: ${{ secrets.DOCKER_USER }}
+            #password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Export version variable
         run: |
@@ -130,10 +133,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
         with:
-          platforms: linux/amd64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64/v8,linux/ppc64le
           context: python
           file: python/pmml.Dockerfile
-          push: true
+          push: false
           tags: ${{ env.IMAGE_ID }}:${{ env.VERSION }}
           # https://github.com/docker/buildx/issues/1533
           provenance: false
