@@ -36,7 +36,11 @@ dependencies = [
     "azure-core>=1.38.0",
     # GHSA-38jv-5279-wg99, CVE-2026-21441 urllib3 decompression-bomb bypass via HTTP redirects
     # Pinning because it is a transitive dependency.
+<<<<<<< HEAD
     "urllib3>=2.6.3",
+=======
+     "urllib3>=2.6.3",
+>>>>>>> dcb990939 (feat(pmmlserver):add ppc64le arch support)
 
     # IBM Power (ppc64le)
     # add transitive dependencies as top-level dependency for uv to resolve it on ppc64le with explicit index

@@ -9,6 +9,12 @@ dependencies = [
     "kserve-storage @ file:///${PROJECT_ROOT}/../storage",
     "jpmml-evaluator~=0.10.3",
     "setuptools<71.0.0,>=70.0.0",
+    # IBM Power (ppc64le)
+    # add transitive dependencies as top-level dependency for uv to resolve it on ppc64le with explicit index
+    "google-crc32c ; platform_machine == 'ppc64le'",
+    "hf-xet ; platform_machine == 'ppc64le'",
+    "pyjnius" ,
+    "jpype1" 
 ]
 name = "pmmlserver"
 version = "0.21.0rc1"
@@ -25,3 +31,31 @@ test = [
 dev = [
     "black[colorama]>=26.3.1,<27",
 ]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+required-environments = [
+"sys_platform == 'linux' and platform_machine == 'ppc64le'"
+]
+
+[[tool.uv.index]]
+name = "ibm-ppc64le"
+url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/"
+explicit = true
+
+[tool.uv.sources]
+# IBM Power (ppc64le)
+# Explicitly use the IBM index when resolving the following packages on ppc64le
+grpcio = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+grpcio-tools = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+numpy = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+pandas = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+psutil = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+pyyaml = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+uvloop = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+httptools = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+google-crc32c = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+hf-xet = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+pillow = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+jpype1 = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+pyjnius = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
