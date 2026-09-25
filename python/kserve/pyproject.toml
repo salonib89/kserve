@@ -169,4 +169,5 @@ ray = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
 torch = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
 torchvision = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
 torchaudio = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
-
+grpcio-tools = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
+grpcio = {index = "ibm-ppc64le", marker = "platform_machine == 'ppc64le'"}
