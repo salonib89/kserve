@@ -8,6 +8,7 @@ on:
     branches:
       - master
       - ppc64le-support-lgb
+      - ppc64le-support-all-components
 
     # Publish `v1.2.3` tags as releases.
     tags:

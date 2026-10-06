@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.10, <3.14"
 resolution-markers = [
     "python_full_version >= '3.13' and platform_machine == 'ppc64le'",
@@ -712,7 +712,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
@@ -1005,7 +1005,7 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/30a/0337ea0ac925c/grpcio-1.82.1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:30a0337ea0ac925cdf006e86b6a311da7350c3be5d0c174b0c2b0fd47c7d2f14" },
@@ -1025,7 +1025,7 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e2/b1/46539f5050d7c316a13396d185451f95084a74ddc68b12d818595bef0377/grpcio-1.83.1.tar.gz", hash = "sha256:9cee6fcbf2eb57c4b49451787bfa87be8efc1ca02a0b327dd4b54d44502e362b", size = 13445033, upload-time = "2026-08-28T07:09:11.464Z" }
 wheels = [
@@ -1082,9 +1082,9 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "grpcio", version = "1.82.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "protobuf" },
-    { name = "setuptools" },
+    { name = "grpcio", version = "1.82.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "platform_machine == 'ppc64le'" },
+    { name = "protobuf", marker = "platform_machine == 'ppc64le'" },
+    { name = "setuptools", marker = "platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/3e8/e9a754793dbed/grpcio_tools-1.80.0+ppc64le1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:3e8e9a754793dbed4111d3a0620f876610148fdfa95d6a98aa3efd553ad71a7e" },
@@ -1104,9 +1104,9 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "grpcio", version = "1.83.1", source = { registry = "https://pypi.org/simple" } },
-    { name = "protobuf" },
-    { name = "setuptools" },
+    { name = "grpcio", version = "1.83.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'ppc64le'" },
+    { name = "protobuf", marker = "platform_machine != 'ppc64le'" },
+    { name = "setuptools", marker = "platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/83/b3/1c5951352d6777fd7f99a0ccee04617fdfd8a5dbf2918a1f58c8b2b280b8/grpcio_tools-1.81.1.tar.gz", hash = "sha256:a22a3870180927fdd84e2b27d079ef5b7f5f8c6110181b6736afc17a463481f1", size = 6236155, upload-time = "2026-06-11T12:51:21.235Z" }
 wheels = [
@@ -1434,8 +1434,7 @@ dependencies = [
     { name = "timing-asgi" },
     { name = "urllib3" },
     { name = "uvicorn", extra = ["standard"] },
-    { name = "uvloop", version = "0.22.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.13' and platform_machine == 'ppc64le'" },
-    { name = "uvloop", version = "0.22.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.13' and platform_machine == 'ppc64le'" },
+    { name = "uvloop", version = "0.22.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "platform_machine == 'ppc64le'" },
     { name = "watchfiles" },
 ]
 
@@ -1556,7 +1555,7 @@ requires-dist = [
     { name = "azure-storage-file-share", specifier = ">=12.16.0,<13.0.0" },
     { name = "boto3", specifier = ">=1.29.0,<2.0.0" },
     { name = "certifi", specifier = ">=2024.7.4" },
-    { name = "cryptography", specifier = ">=50.0.0" },
+    { name = "cryptography", specifier = ">=48.0.1" },
     { name = "dulwich", specifier = ">=1.2.5" },
     { name = "google-cloud-storage", specifier = ">=2.14.0,<3.0.0" },
     { name = "google-crc32c", marker = "platform_machine == 'ppc64le'", index = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" },
@@ -1662,12 +1661,12 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
-    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
-    { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/68/0b/a2e9f5c5da7ef047cc60cef37f86185088845e8433e54d2e7ed439cce8a3/lightgbm-4.6.0.tar.gz", hash = "sha256:cb1c59720eb569389c0ba74d14f52351b573af489f230032a1c9f314f8bab7fe", size = 1703705, upload-time = "2025-02-15T04:03:03.111Z" }
 wheels = [
@@ -1680,8 +1679,8 @@ wheels = [
 
 [package.optional-dependencies]
 scikit-learn = [
-    { name = "scikit-learn", version = "1.7.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "scikit-learn", version = "1.9.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "scikit-learn", version = "1.7.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "scikit-learn", version = "1.9.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' and platform_machine != 'ppc64le'" },
 ]
 
 [[package]]
@@ -1695,12 +1694,12 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*'" },
-    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12'" },
-    { name = "scipy", version = "1.15.3+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11'" },
-    { name = "scipy", version = "1.17.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*'" },
-    { name = "scipy", version = "1.18.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12'" },
+    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.15.3+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.17.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.18.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/050/3cade40103cee/lightgbm-4.6.0+ppc64le1-py3-none-linux_ppc64le.whl", hash = "sha256:0503cade40103cee65dae0fbb5204e5799d8d8a1d4c8bf64684b1ba83ae8b916" },
@@ -1709,9 +1708,9 @@ wheels = [
 
 [package.optional-dependencies]
 scikit-learn = [
-    { name = "scikit-learn", version = "1.7.2+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11'" },
-    { name = "scikit-learn", version = "1.8.0+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*'" },
-    { name = "scikit-learn", version = "1.9.0", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12'" },
+    { name = "scikit-learn", version = "1.7.2+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "scikit-learn", version = "1.8.0+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "scikit-learn", version = "1.9.0", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
 ]
 
 [[package]]
@@ -2408,12 +2407,12 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*'" },
-    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "python-dateutil" },
-    { name = "pytz" },
-    { name = "tzdata" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
+    { name = "python-dateutil", marker = "platform_machine != 'ppc64le'" },
+    { name = "pytz", marker = "platform_machine != 'ppc64le'" },
+    { name = "tzdata", marker = "platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/33/01/d40b85317f86cf08d853a4f495195c73815fdf205eef3993821720274518/pandas-2.3.3.tar.gz", hash = "sha256:e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b", size = 4495223, upload-time = "2025-09-29T23:34:51.853Z" }
 wheels = [
@@ -2464,12 +2463,12 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11'" },
-    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*'" },
-    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12'" },
-    { name = "python-dateutil" },
-    { name = "pytz" },
-    { name = "tzdata" },
+    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "python-dateutil", marker = "platform_machine == 'ppc64le'" },
+    { name = "pytz", marker = "platform_machine == 'ppc64le'" },
+    { name = "tzdata", marker = "platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/08d/ac18625eef071/pandas-2.3.3+ppc64le1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:08dac18625eef0711e425284fce6e371cfbd0cc1daa3dd80e47b2834d4065404" },
@@ -3308,10 +3307,10 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "joblib" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" } },
-    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" } },
-    { name = "threadpoolctl" },
+    { name = "joblib", marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
+    { name = "threadpoolctl", marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz", hash = "sha256:20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda", size = 7193136, upload-time = "2025-09-09T08:21:29.075Z" }
 wheels = [
@@ -3350,10 +3349,10 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "joblib" },
-    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "scipy", version = "1.15.3+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "threadpoolctl" },
+    { name = "joblib", marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.15.3+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
+    { name = "threadpoolctl", marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/b06/602a1b2f6c05f/scikit_learn-1.7.2+ppc64le1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:b06602a1b2f6c05f59e6cce13c8831681d4c93bdd24c77a44b40efcccc5de1c8" },
@@ -3370,10 +3369,10 @@ resolution-markers = [
     "python_full_version == '3.11.*' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "joblib" },
-    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "scipy", version = "1.17.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "threadpoolctl" },
+    { name = "joblib", marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.17.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
+    { name = "threadpoolctl", marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/3cb/72ef8c447a16a/scikit_learn-1.8.0+ppc64le1-cp311-cp311-manylinux_2_34_ppc64le.whl", hash = "sha256:3cb72ef8c447a16a4440d2b70838163bb38e8f72f782a6771efbae80d28d5a91" },
@@ -3390,11 +3389,11 @@ resolution-markers = [
     "python_full_version == '3.12.*' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "joblib" },
-    { name = "narwhals" },
-    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "scipy", version = "1.18.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
-    { name = "threadpoolctl" },
+    { name = "joblib", marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "narwhals", marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "scipy", version = "1.18.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
+    { name = "threadpoolctl", marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/63e/32711eca4c6cc/scikit_learn-1.9.0-cp312-cp312-manylinux_2_38_ppc64le.whl", hash = "sha256:63e32711eca4c6ccd3183e43d5d43c42527c6461ba07031e9c0ea5d54c57538e" },
@@ -3411,13 +3410,13 @@ resolution-markers = [
     "python_full_version == '3.11.*' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "joblib" },
-    { name = "narwhals" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "threadpoolctl" },
+    { name = "joblib", marker = "python_full_version >= '3.11' and platform_machine != 'ppc64le'" },
+    { name = "narwhals", marker = "python_full_version >= '3.11' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
+    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
+    { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
+    { name = "threadpoolctl", marker = "python_full_version >= '3.11' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d2/eb/eaf5e07fcc0da7149b0e084f24e54edd7441b9a89ce7e034032ae97fe3a0/scikit_learn-1.9.1.tar.gz", hash = "sha256:629cada3e33e2b9bf376cdc7614a47a4140b8aedc1d836579e359736fbd82977", size = 7786908, upload-time = "2026-09-10T18:34:04.679Z" }
 wheels = [
@@ -3449,7 +3448,7 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" } },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0f/37/6964b830433e654ec7485e45a00fc9a27cf868d622838f6b6d9c5ec0d532/scipy-1.15.3.tar.gz", hash = "sha256:eae3cf522bc7df64b42cad3925c876e1b0b6c35c1337c93e12c0f366f55b0eaf", size = 59419214, upload-time = "2025-05-08T16:13:05.955Z" }
 wheels = [
@@ -3508,7 +3507,7 @@ resolution-markers = [
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
+    { name = "numpy", version = "2.2.6+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.11' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/52b/25c9de63d38de/scipy-1.15.3+ppc64le1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:52b25c9de63d38de57fe64403d383fecc620522158eb03010af2a179bdecee69" },
@@ -3525,7 +3524,7 @@ resolution-markers = [
     "python_full_version == '3.11.*' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" } },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.11.*' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/7a/97/5a3609c4f8d58b039179648e62dd220f89864f56f7357f5d4f45c29eb2cc/scipy-1.17.1.tar.gz", hash = "sha256:95d8e012d8cb8816c226aef832200b1d45109ed4464303e997c5b13122b297c0", size = 30573822, upload-time = "2026-02-23T00:26:24.851Z" }
 wheels = [
@@ -3579,7 +3578,7 @@ resolution-markers = [
     "python_full_version == '3.11.*' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
+    { name = "numpy", version = "2.4.6+ppc64le1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version == '3.11.*' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/977/d43c826cee297/scipy-1.17.1+ppc64le2-cp311-cp311-manylinux_2_34_ppc64le.whl", hash = "sha256:977d43c826cee297bda13043c8960afc1c9b242be7fca8c34a6a50f24b7c5051" },
@@ -3596,7 +3595,7 @@ resolution-markers = [
     "python_full_version == '3.12.*' and platform_machine != 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" } },
+    { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12' and platform_machine != 'ppc64le'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/7e/74/66de6258867beb2ef08f35f9f2ac017a52cacd5081714d239ff1a442d458/scipy-1.18.1.tar.gz", hash = "sha256:52c4b7422442aba924d03ad4019852b08a92e64ea187b933135687bfe2747307", size = 30781235, upload-time = "2026-08-21T23:28:50.599Z" }
 wheels = [
@@ -3631,7 +3630,7 @@ resolution-markers = [
     "python_full_version == '3.12.*' and platform_machine == 'ppc64le'",
 ]
 dependencies = [
-    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" } },
+    { name = "numpy", version = "2.5.2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.12' and platform_machine == 'ppc64le'" },
 ]
 wheels = [
     { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/ac2/ffb80e692384e/scipy-1.18.1-cp312-cp312-manylinux_2_34_ppc64le.whl", hash = "sha256:ac2ffb80e692384ef36488466eae17780b008cc001d50e60acae861463cb5298" },
@@ -3805,8 +3804,7 @@ standard = [
     { name = "pyyaml", version = "6.0.3", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'ppc64le'" },
     { name = "pyyaml", version = "6.0.3+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "platform_machine == 'ppc64le'" },
     { name = "uvloop", version = "0.22.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'ppc64le' and platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'" },
-    { name = "uvloop", version = "0.22.1", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version >= '3.13' and platform_machine == 'ppc64le' and platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'" },
-    { name = "uvloop", version = "0.22.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "python_full_version < '3.13' and platform_machine == 'ppc64le' and platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'" },
+    { name = "uvloop", version = "0.22.1+ppc64le2", source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }, marker = "platform_machine == 'ppc64le' and platform_python_implementation != 'PyPy' and sys_platform != 'cygwin' and sys_platform != 'win32'" },
     { name = "watchfiles" },
     { name = "websockets", version = "16.1.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "websockets", version = "17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
@@ -3852,23 +3850,10 @@ wheels = [
 
 [[package]]
 name = "uvloop"
-version = "0.22.1"
-source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }
-resolution-markers = [
-    "python_full_version >= '3.13' and platform_machine == 'ppc64le'",
-]
-wheels = [
-    { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/28a/53e57a2deae9b/uvloop-0.22.1-cp310-cp310-manylinux_2_34_ppc64le.whl", hash = "sha256:28a53e57a2deae9b4dbb99ef0c2f88ec1166f520281050c85f55e59368b301a8" },
-    { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/c2b/dab4b497cfd1c/uvloop-0.22.1-cp311-cp311-manylinux_2_34_ppc64le.whl", hash = "sha256:c2bdab4b497cfd1c2f77aa5a2d2de1897df7d5be5c4e2a3afbbff309c0e6f7e8" },
-    { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/e30/65a5a0d960bc1/uvloop-0.22.1-cp312-cp312-manylinux_2_34_ppc64le.whl", hash = "sha256:e3065a5a0d960bc11283de5d908f789d6cab768446cb68a34f3793345cae286d" },
-    { url = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+f/2f2/908abf6a53025/uvloop-0.22.1-cp313-cp313-manylinux_2_34_ppc64le.whl", hash = "sha256:2f2908abf6a530253cc0e3b4a0e515f7d0e3ff7feb8aaa7636b3e3fd4fae294f" },
-]
-
-[[package]]
-name = "uvloop"
 version = "0.22.1+ppc64le2"
 source = { registry = "https://wheels.developerfirst.ibm.com/ppc64le/linux/+simple/" }
 resolution-markers = [
+    "python_full_version >= '3.13' and platform_machine == 'ppc64le'",
     "python_full_version == '3.12.*' and platform_machine == 'ppc64le'",
     "python_full_version == '3.11.*' and platform_machine == 'ppc64le'",
     "python_full_version < '3.11' and platform_machine == 'ppc64le'",
